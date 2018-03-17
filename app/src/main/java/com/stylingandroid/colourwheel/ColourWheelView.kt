@@ -2,16 +2,17 @@ package com.stylingandroid.colourwheel
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
-import android.widget.ImageView
 
 class ColourWheelView @JvmOverloads constructor(
         context: Context,
         attributeSet: AttributeSet? = null,
         defStyleAttr: Int = 0
-) : ImageView(context, attributeSet, defStyleAttr), BitmapGenerator.BitmapObserver {
+) : AppCompatImageView(context, attributeSet, defStyleAttr), BitmapGenerator.BitmapObserver {
+
     private val bitmapGenerator: BitmapGenerator by lazy(LazyThreadSafetyMode.NONE) {
-        BitmapGenerator(context, Bitmap.Config.ARGB_8888, this)
+        BitmapGenerator(Bitmap.Config.ARGB_8888, this)
     }
 
     var brightness: Byte by bitmapGenerator
