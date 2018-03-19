@@ -22,7 +22,7 @@ uchar4 RS_KERNEL root(uchar4 in, int32_t x, int32_t y) {
     uchar4 out;
     float xOffset = x - centreX;
     float yOffset = y - centreY;
-    float centreOffset = sqrt(xOffset * xOffset + yOffset * yOffset);
+    float centreOffset = hypot(xOffset, yOffset);
     if (centreOffset <= radius) {
         float centreAngle = fmod(degrees(atan2(yOffset, xOffset)) + 360.0f, 360.0f);
         float3 colourHsv;
