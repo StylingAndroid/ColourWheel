@@ -70,7 +70,7 @@ class BitmapGenerator(
             for (y in 0 until bitmap.height) {
                 xOffset = x - centreX
                 yOffset = y - centreY
-                centreOffset = Math.sqrt((xOffset * xOffset) + (yOffset * yOffset))
+                centreOffset = Math.hypot(xOffset, yOffset)
                 colour = if (centreOffset <= radius) {
                     rawAngle = Math.toDegrees(Math.atan2((yOffset), (xOffset)))
                     centreAngle = (rawAngle + 360.0) % 360.0
